@@ -1,0 +1,7 @@
+acucar:4
+agua:2
+cafe:7
+gelatina:55
+macarrao:79
+pao:3
+sal:1
