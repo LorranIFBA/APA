@@ -22,7 +22,7 @@ while loop:
         loop = False
 
 
-#estoque_.ordenar()
+estoque_.ordenar()
 
 codigo = estoque_.busca("sal")
 if codigo != -1:
