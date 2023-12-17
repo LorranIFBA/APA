@@ -55,5 +55,35 @@ Em resumo, a prova de limite inferior para a cifra XOR recursiva sugere que, no 
 qualquer algoritmo que empregue uma abordagem semelhante de XOR recursiva deve ter uma complexidade de tempo pelo menos linear no comprimento do texto simples.
 Isso estabelece uma base para o número mínimo de operações necessárias para tarefas de criptografia desse tipo.
 
+### Medidas Empíricas de Performance
+
+Medidas empíricas de desempenho referem-se a medições e avaliações do desempenho real de um sistema, aplicação ou algoritmo sob condições do mundo real. Essas medidas são obtidas por meio de observação prática,
+experimentação e coleta de dados, em vez de análise teórica.
+
+As medidas empíricas de desempenho são cruciais para avaliar como o software se comporta na prática, identificar possíveis gargalos e tomar decisões informadas sobre otimizações. Exemplos comuns de medidas empíricas de desempenho incluem tempo de execução, uso de memória, tempo de resposta, produtividade e outros indicadores quantitativos que fornecem insights sobre a eficiência e eficácia de um sistema de software.
+
+Ao coletar e analisar dados empíricos de desempenho, desenvolvedores e administradores de sistemas podem identificar áreas para melhorias, validar a eficácia de otimizações e tomar decisões informadas sobre a escalabilidade e confiabilidade de aplicativos de software em cenários do mundo real. Essa abordagem empírica complementa a análise teórica e ajuda a garantir que o software tenha bom desempenho em ambientes diversos e dinâmicos.
 
 
+### Uso de Relações de Recorrência:
+No contexto da ciência da computação e matemática, uma relação de recorrência é uma maneira de definir uma sequência de valores em que cada termo na sequência é definido em termos de um ou mais termos anteriores.
+A relação de recorrência fornece uma maneira de expressar a relação entre o valor de uma função em um determinado ponto e seus valores em pontos anteriores. Relações de recorrência são frequentemente usadas na análise de algoritmos, especialmente ao avaliar a complexidade temporal ou espacial de algoritmos recursivos.
+
+Aqui está um exemplo simples de uma relação de recorrência:
+T(n) = 2T(n/2) + 1
+
+Nesta relação, T(n) representa a complexidade temporal de um algoritmo, e é definido em termos do dobro da complexidade temporal do algoritmo com metade do tamanho de entrada (T(n/2)), mais um termo constante (1).
+Resolver relações de recorrência é uma tarefa comum na análise de algoritmos, e frequentemente envolve encontrar soluções em forma fechada ou usar técnicas como o Teorema Mestre para analisar o comportamento assintótico dos algoritmos.
+
+A relação de recorrência para o algoritmo do cifra XOR em termos de complexidade temporal T(n) pode ser expressa da seguinte forma: 
+
+T(n)=T(n−1)+Θ(1)
+
+- T(n): Representa a complexidade temporal do algoritmo para uma entrada de tamanho n.  
+- T(n−1): Representa a complexidade temporal para um tamanho de entrada menor n−1 quando o algoritmo é chamado recursivamente nos elementos restantes.  
+- Θ(1): Representa o tempo constante necessário para a operação XOR e outras operações de tempo constante dentro da função.  
+
+Essa relação de recorrência captura a natureza recursiva do algoritmo, onde a complexidade temporal para uma entrada de tamanho n está diretamente relacionada à complexidade temporal para uma entrada de tamanho n−1,
+somada a uma quantidade constante de tempo para a operação XOR.
+
+É importante observar que a análise assume tempo constante para a operação XOR e não leva em consideração outros fatores que poderiam afetar a complexidade temporal, como o custo das chamadas de função ou outras operações dentro da função. Para uma análise mais detalhada, esses fatores precisariam ser considerados.
