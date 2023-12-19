@@ -1,29 +1,29 @@
-def recursive_xor(pt, key, encoded=None, index=0):
-  if encoded is None:
-      encoded = []
+def xor_recursivo(tp, chave, cifrado=None, indice=0):
+  if cifrado is None:
+      cifrado = []
 
-  if index < len(pt):
-      encoded_byte = pt[index] ^ key[index % len(key)]
-      encoded.append(encoded_byte)
-      return recursive_xor(pt, key, encoded, index + 1)
+  if indice < len(tp):
+      byte_cifrado = tp[indice] ^ chave[indice % len(chave)]
+      cifrado.append(byte_cifrado)
+      return xor_recursivo(tp, chave, cifrado, indice + 1)
   else:
-      return bytes(encoded)
+      return bytes(cifrado)
 
 
-def repeated_key_xor(plain_text, key):
+def xor_iterativo(texto_plano, chave):
 
-  # returns plain text by repeatedly xoring it with key
-  pt = plain_text
-  len_key = len(key)
-  encoded = []
+  # returns plain text by repeatedly xoring it with chave
+  tp = texto_plano
+  len_chave = len(chave)
+  cifrado = []
 
-  for i in range(0, len(pt)):
-    encoded.append(pt[i] ^ key[i % len_key])
-  return bytes(encoded)
+  for i in range(0, len(tp)):
+    cifrado.append(tp[i] ^ chave[i % len_chave])
+  return bytes(cifrado)
 
-plain_text = b'Esta e uma mensagem codificada com o algoritmo XOR'
-key = b'SenhaXOR'
+texto_plano = b'Esta e uma mensagem codificada com o algoritmo XOR'
+chave = b'SenhaXOR'
 
-print("Plain text: ", plain_text)
-print("Encrypted as: ", recursive_xor(plain_text, key).hex())
-print("decryption: ", recursive_xor(recursive_xor(plain_text, key), key).decode()) 
+print("Plain text: ", texto_plano)
+print("Encrytped as: ", xor_recursivo(texto_plano, chave).hex())
+print("decrytpion: ", xor_recursivo(xor_recursivo(texto_plano, chave), chave).decode()) 
