@@ -1,8 +1,10 @@
 import ast
 
 class CodeAnalyzer(ast.NodeVisitor):
+    """Classe para analisar o código fonte Python e extrair informações sobre suas operações e loops."""
+
     def __init__(self):
-        # Inicializa os contadores de operações e loops
+        """Inicializa os contadores de operações e loops."""
         self.operations = {
             'Assign': 0,      # Contador para atribuições
             'AugAssign': 0,   # Contador para atribuições aumentadas
@@ -19,7 +21,7 @@ class CodeAnalyzer(ast.NodeVisitor):
         }
 
     def visit(self, node):
-        # Método de visitação dos nós da AST
+        """Visita os nós da AST e atualiza os contadores de operações e loops."""
         if isinstance(node, ast.FunctionDef):
             # Se o nó for uma definição de função, visita seus nós filhos
             self.generic_visit(node)
@@ -48,7 +50,7 @@ class CodeAnalyzer(ast.NodeVisitor):
 
 
 def has_nested_loops(node, level=0):
-    # Função para verificar se há loops aninhados em um nó da AST
+    """Verifica se há loops aninhados em um nó da AST."""
     if isinstance(node, ast.For) or isinstance(node, ast.While):
         # Se o nó for um loop 'for' ou 'while', verifica seus nós filhos recursivamente
         max_level = level
@@ -59,7 +61,7 @@ def has_nested_loops(node, level=0):
 
 
 def analyze_code_from_file(filename):
-    # Função para analisar o código de um arquivo e extrair informações relevantes
+    """Analisa o código de um arquivo e extrai informações sobre suas operações e loops."""
     with open(filename, 'r') as file:
         code = file.read()
     tree = ast.parse(code)
@@ -71,7 +73,7 @@ def analyze_code_from_file(filename):
 
 
 def print_asymptotic_notation(loops):
-    # Função para imprimir a notação assintótica com base nos loops identificados
+    """Imprime a notação assintótica com base nos loops identificados."""
     max_nested_for = loops.get('nested For', 0)
     max_nested_while = loops.get('nested While', 0)
 
@@ -86,7 +88,7 @@ def print_asymptotic_notation(loops):
 
 
 if __name__ == "__main__":
-    # Função principal para análise do código de um arquivo
+    """Função principal para análise do código de um arquivo."""
     file_path = "file.txt"
     operations, loops = analyze_code_from_file(file_path)
 
